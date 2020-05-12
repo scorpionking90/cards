@@ -2,49 +2,53 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import firebase from './firebase.js'
+import { Row, Col, Card } from 'antd';
+import 'antd/dist/antd.css';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      words: [],
-      advanced_words: []
+      dealer: {
+        name: "",
+        point: "",
+        card: ""
+      },
+
+      players: []
     }
   }
   componentDidMount() {
-    const wordRef = firebase.database().ref('words');
-    console.log(wordRef);
-    wordRef.on('value', (snapshot) => {
-      console.log(snapshot)
-      let words = snapshot.val();
-      let newState = [];
-      for (let word in words) {
-        newState.push({
-          id: word,
-          word: words[word].word,
-          meaning: words[word].meaning
-        })
+    const dealerRef = firebase.database().ref('dealer');
+    dealerRef.on('value', (snapshot) => {
+      let dealers = snapshot.val();
+      let newState = {};
+      for (let dealer in dealers) {
+        newState.id = dealer;
+        newState.name = dealers[dealer].name;
+        newState.point = dealers[dealer].point;
+        newState.card = dealers[dealer].card;
       }
       this.setState({
-        words: newState
+        dealer: newState
       });
     });
 
-    const advRef = firebase.database().ref('advanced_words');
-    console.log(wordRef);
-    advRef.on('value', (snapshot) => {
-      console.log(snapshot)
-      let advWords = snapshot.val();
+    const playerRef = firebase.database().ref('users');
+    playerRef.on('value', (snapshot) => {
+      let players = snapshot.val();
       let newState = [];
-      for (let advWord in advWords) {
+      for (let player in players) {
         newState.push({
-          id: advWord,
-          advWord: advWords[advWord].word,
-          meaning: advWords[advWord].meaning
+          id: player,
+          name: players[player].name,
+          point: players[player].point,
+          card1: players[player].card1,
+          card2: players[player].card2
         })
       }
       this.setState({
-        advanced_words: newState
+        players: newState
       });
     });
   }
@@ -53,37 +57,47 @@ class App extends React.Component {
 
     return (
       <div>
-        <div>
-          <a href="#normal">Words 1</a>
-          <a href="#adv">Words 2</a>
+
+        <div class="dealerSection">
+          <Row>
+            <Col span={8}>
+              <div class="dealerLeft">
+                <h1>Pot Money</h1>
+                <h6>{this.state.dealer.point}</h6>
+              </div>
+            </Col>
+            <Col span={8}>
+              <div class="dealerCenter">
+                <p>Dealer</p>
+                <img src={process.env.PUBLIC_URL + '/12-512.webp'} width="100px"></img>
+                <div>
+                  <p>{this.state.dealer.name}</p>
+                </div>
+              </div>
+            </Col>
+            <Col span={8}>
+              <div class="dealerRight">
+                <h1>Dealer Card</h1>
+                <h6>{this.state.dealer.card}</h6>
+              </div>
+            </Col>
+          </Row>
         </div>
-        <section id="normal">
-          <div>
-            <h1>Words 1</h1>
-            {this.state.words.map((word) => {
-              return (
-                <div>
-                  <h3>{word.word}</h3>
-                  <p>{word.meaning}</p>
-                </div>
-              )
-            })}
-          </div>
-        </section>
-        <section id="adv">
-          <div>
-            <h1>Words 2</h1>
-            {this.state.advanced_words.map((word) => {
-              return (
-                <div>
-                  <h3>{word.advWord}</h3>
-                  <p>{word.meaning}</p>
-                </div>
-              )
-            })}
-          </div>
-        </section>
-      </div>
+
+        <div class="playersSection">
+          <Row gutter={24} id="render-data">{this.state.players.map((player) => {
+            return (
+              <Col span={4} style={{ width: 240 }}>
+                <Card title={player.name} bordered={true} style={{ width: 300 }}>
+                  <p>{player.point}</p>
+                  <p>{player.card}</p>
+                </Card>
+              </Col>
+            )
+          })}
+          </Row>
+        </div>
+      </div >
     );
   }
 }
