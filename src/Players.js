@@ -38,10 +38,10 @@ class Dealer extends React.Component {
             <div>
 
                 <div class="playersSection">
-                    <Row gutter={24} id="render-data">{this.state.players.map((player) => {
+                    <Row gutter={12} id="render-data">{this.state.players.map((player) => {
                         return (
-                            <Col span={4} style={{ width: 240 }}>
-                                <Card title={player.name} bordered={true} style={{ width: 300 }}>
+                            <Col span={4} style={{ padding: "6px" }}>
+                                <Card title={player.name} bordered={true} >
                                     <p>{player.point}</p>
                                     <p>{player.card}</p>
                                 </Card>
