@@ -44,33 +44,19 @@
 background: #305d3c;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (min-width: 1280px) {
   .playerCards {
     margin: 0px auto 0px 172px
   }
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (min-width: 1440px) {
   .playerCards {
     margin: 0px auto 0px 192px
   }
 }
 
-#container1{
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-}
-
-#container2{
-  width: 100%;
-  height: 99%;
-  overflow: auto;
-  overflow-x: hidden;
-}
-
-html, body{
-  height: 99%;
-  overflow: hidden;
-  // overflow:scroll;
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
 }

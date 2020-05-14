@@ -203,13 +203,10 @@ class App extends React.Component {
           height: '100vh',
           position: 'fixed',
           left: 0,
+          overflow: 'auto'
         }}>
-          <div id="container1">
-            <div id="container2">
-              <img src={logo1} alt="logo-symbol" style={{ maxWidth: "100%" }} />
-              <Dealer newGame={this.newGame} username={this.props.match.params.username} cardsArray={this.state.cardsArray} shuffle={this.shuffle} dealOneCard={this.dealOneCard} betOneCard={this.betOneCard} flip={this.flip} deckArray={deckArray} />
-            </div>
-          </div>
+          <img src={logo1} alt="logo-symbol" style={{ maxWidth: "100%" }} />
+          <Dealer newGame={this.newGame} username={this.props.match.params.username} cardsArray={this.state.cardsArray} shuffle={this.shuffle} dealOneCard={this.dealOneCard} betOneCard={this.betOneCard} flip={this.flip} deckArray={deckArray} />
         </Sider>
         <Layout className="site-layout" style={{ marginLeft: 200, overflow: 'hidden' }}>
 
