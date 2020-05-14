@@ -62,7 +62,7 @@ class Dealer extends React.Component {
                 <div class="dealerSection">
 
                     <Title level={4}>Pot Points</Title>
-                    <Title level={4} style={{ color: "#da5353" }}>{this.state.dealer.point}</Title>
+                    <Title level={4} style={{ color: "#da5353" }} >{this.state.dealer.point}</Title>
                     {/* <Title level={5}>{this.state.dealer.point}</Title> */}
 
                     <ActionsButtons username={this.props.username} shuffle={this.props.shuffle} dealOneCard={this.props.dealOneCard} betOneCard={this.props.betOneCard} flip={this.props.flip} deckArray={this.props.deckArray} />
