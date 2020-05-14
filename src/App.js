@@ -46,7 +46,8 @@ class App extends React.Component {
     for (var player = 0; player < players.length; player++) {
       var data = {
         card1: "",
-        card2: ""
+        card2: "",
+        flip: false
       }
       playerRef.child(player)
         .update(data)
@@ -121,7 +122,6 @@ class App extends React.Component {
   betOneCard = () => {
 
     let cardsArray = this.state.cardsArray;
-    console.log(cardsArray)
     const randomItem = cardsArray[Math.floor(Math.random() * cardsArray.length)];
     const newCardsArray = cardsArray.filter(element => element.index !== randomItem.index)
     this.setState({ cardsArray: newCardsArray })
