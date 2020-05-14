@@ -55,3 +55,22 @@ background: #305d3c;
     margin: 0px auto 0px 192px
   }
 }
+
+#container1{
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+#container2{
+  width: 100%;
+  height: 99%;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+html, body{
+  height: 99%;
+  overflow: hidden;
+  // overflow:scroll;
+}
