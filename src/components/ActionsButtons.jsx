@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { Button } from 'antd';
 
 const ActionsButtons = (props) => {
-    console.log(props)
     return (
         <div>
             {
@@ -11,7 +10,7 @@ const ActionsButtons = (props) => {
                     (
                         <div>
                             <div style={{ margin: "40px 20px", textAlign: "center" }}>
-                                <Button type="primary" onClick={() => props.shuffle(props.deckArray)} block>Play</Button>
+                                <Button type="primary" onClick={() => props.newGame()} block>New Game</Button>
                             </div>
                             <div style={{ margin: "40px 10px", textAlign: "center" }}>
                                 <Button type="primary" onClick={() => props.shuffle(props.deckArray)} style={{ marginLeft: "20px" }}>Shuffle</Button>
@@ -35,7 +34,7 @@ ActionsButtons.propTypes = {
     flip: PropTypes.func,
     deckArray: PropTypes.array,
     betOneCard: PropTypes.func,
-
+    newGame: PropTypes.func,
 };
 
 export default ActionsButtons;

@@ -1,0 +1,21 @@
+
+  .status-error{
+    max-width: 825px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 75px 22px 145px 22px;
+    margin-bottom: 4rem;
+    }
+    .image-five-hundred {
+      float: left;
+      width: 175px;
+      height: auto;
+      margin-right: 40px;
+    }
+    .error-message {
+      margin-top: 25px;
+      font-weight: normal;
+  }
+  
+  
+  

@@ -42,10 +42,30 @@ class Dealer extends React.Component {
             });
         });
     }
-    render() {
-        // console.log(this.props.match.params.username);
-        console.log(this.props.cardsArray);
 
+    pointsChange = (str) => {
+        // console.log('Content change:', str, key);
+        var playerRef = firebase.database().ref('dealer');
+        let players;
+        playerRef.on('value', (snapshot) => {
+            players = snapshot.val();
+        });
+
+        var data = {
+            point: str
+        }
+        playerRef.child(0)
+            .update(data)
+            .then(() => playerRef.once('value'))
+            .then(snapshot => snapshot.val())
+            .catch(error => ({
+                errorCode: error.code,
+                errorMessage: error.message
+            }));
+
+
+    };
+    render() {
         return (
             <div>
                 {/* <div style={{ width: "100%" }}>
@@ -62,10 +82,10 @@ class Dealer extends React.Component {
                 <div class="dealerSection">
 
                     <Title level={4}>Pot Points</Title>
-                    <Title level={4} style={{ color: "#da5353" }} >{this.state.dealer.point}</Title>
+                    <Title level={4} style={{ color: "#da5353" }} editable={{ onChange: (str) => this.pointsChange(str) }}>{this.state.dealer.point}</Title>
                     {/* <Title level={5}>{this.state.dealer.point}</Title> */}
 
-                    <ActionsButtons username={this.props.username} shuffle={this.props.shuffle} dealOneCard={this.props.dealOneCard} betOneCard={this.props.betOneCard} flip={this.props.flip} deckArray={this.props.deckArray} />
+                    <ActionsButtons newGame={this.props.newGame} username={this.props.username} shuffle={this.props.shuffle} dealOneCard={this.props.dealOneCard} betOneCard={this.props.betOneCard} flip={this.props.flip} deckArray={this.props.deckArray} />
 
                     <div class="dealerCenter">
                         <img src={process.env.PUBLIC_URL + '/12-512.webp'} width="100px"></img>

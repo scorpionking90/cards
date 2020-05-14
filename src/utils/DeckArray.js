@@ -310,5 +310,317 @@ export const deckArray = [
         card: "K",
         color: "black",
         index: "52"
+    },
+    {
+        suits: "Heart",
+        card: "A",
+        color: "red",
+        index: "53"
+    },
+    {
+        suits: "Heart",
+        card: "2",
+        color: "red",
+        index: "54"
+    },
+    {
+        suits: "Heart",
+        card: "3",
+        color: "red",
+        index: "55"
+    },
+    {
+        suits: "Heart",
+        card: "4",
+        color: "red",
+        index: "56"
+    },
+    {
+        suits: "Heart",
+        card: "5",
+        color: "red",
+        index: "57"
+    },
+    {
+        suits: "Heart",
+        card: "6",
+        color: "red",
+        index: "58"
+    },
+    {
+        suits: "Heart",
+        card: "7",
+        color: "red",
+        index: "59"
+    },
+    {
+        suits: "Heart",
+        card: "8",
+        color: "red",
+        index: "60"
+    },
+    {
+        suits: "Heart",
+        card: "9",
+        color: "red",
+        index: "61"
+    },
+    {
+        suits: "Heart",
+        card: "10",
+        color: "red",
+        index: "62"
+    },
+    {
+        suits: "Heart",
+        card: "J",
+        color: "red",
+        index: "63"
+    },
+    {
+        suits: "Heart",
+        card: "Q",
+        color: "red",
+        index: "64"
+    },
+    {
+        suits: "Heart",
+        card: "K",
+        color: "red",
+        index: "65"
+    },
+    {
+        suits: "Diamond",
+        card: "A",
+        color: "red",
+        index: "66"
+    },
+    {
+        suits: "Diamond",
+        card: "2",
+        color: "red",
+        index: "67"
+    },
+    {
+        suits: "Diamond",
+        card: "3",
+        color: "red",
+        index: "68"
+    },
+    {
+        suits: "Diamond",
+        card: "4",
+        color: "red",
+        index: "69"
+    },
+    {
+        suits: "Diamond",
+        card: "5",
+        color: "red",
+        index: "70"
+    },
+    {
+        suits: "Diamond",
+        card: "6",
+        color: "red",
+        index: "71"
+    },
+    {
+        suits: "Diamond",
+        card: "7",
+        color: "red",
+        index: "72"
+    },
+    {
+        suits: "Diamond",
+        card: "8",
+        color: "red",
+        index: "73"
+    },
+    {
+        suits: "Diamond",
+        card: "9",
+        color: "red",
+        index: "74"
+    },
+    {
+        suits: "Diamond",
+        card: "10",
+        color: "red",
+        index: "75"
+    },
+    {
+        suits: "Diamond",
+        card: "J",
+        color: "red",
+        index: "76"
+    },
+    {
+        suits: "Diamond",
+        card: "Q",
+        color: "red",
+        index: "77"
+    },
+    {
+        suits: "Diamond",
+        card: "K",
+        color: "red",
+        index: "78"
+    },
+    {
+        suits: "Club",
+        card: "A",
+        color: "black",
+        index: "79"
+    },
+    {
+        suits: "Club",
+        card: "2",
+        color: "black",
+        index: "80"
+    },
+    {
+        suits: "Club",
+        card: "3",
+        color: "black",
+        index: "81"
+    },
+    {
+        suits: "Club",
+        card: "4",
+        color: "black",
+        index: "82"
+    },
+    {
+        suits: "Club",
+        card: "5",
+        color: "black",
+        index: "83"
+    },
+    {
+        suits: "Club",
+        card: "6",
+        color: "black",
+        index: "84"
+    },
+    {
+        suits: "Club",
+        card: "7",
+        color: "black",
+        index: "85"
+    },
+    {
+        suits: "Club",
+        card: "8",
+        color: "black",
+        index: "86"
+    },
+    {
+        suits: "Club",
+        card: "9",
+        color: "black",
+        index: "87"
+    },
+    {
+        suits: "Club",
+        card: "10",
+        color: "black",
+        index: "88"
+    },
+    {
+        suits: "Club",
+        card: "J",
+        color: "black",
+        index: "89"
+    },
+    {
+        suits: "Club",
+        card: "Q",
+        color: "black",
+        index: "90"
+    },
+    {
+        suits: "Club",
+        card: "K",
+        color: "black",
+        index: "91"
+    },
+    {
+        suits: "Spade",
+        card: "A",
+        color: "black",
+        index: "92"
+    },
+    {
+        suits: "Spade",
+        card: "2",
+        color: "black",
+        index: "93"
+    },
+    {
+        suits: "Spade",
+        card: "3",
+        color: "black",
+        index: "94"
+    },
+    {
+        suits: "Spade",
+        card: "4",
+        color: "black",
+        index: "95"
+    },
+    {
+        suits: "Spade",
+        card: "5",
+        color: "black",
+        index: "96"
+    },
+    {
+        suits: "Spade",
+        card: "6",
+        color: "black",
+        index: "97"
+    },
+    {
+        suits: "Spade",
+        card: "7",
+        color: "black",
+        index: "98"
+    },
+    {
+        suits: "Spade",
+        card: "8",
+        color: "black",
+        index: "99"
+    },
+    {
+        suits: "Spade",
+        card: "9",
+        color: "black",
+        index: "100"
+    },
+    {
+        suits: "Spade",
+        card: "10",
+        color: "black",
+        index: "101"
+    },
+    {
+        suits: "Spade",
+        card: "J",
+        color: "black",
+        index: "102"
+    },
+    {
+        suits: "Spade",
+        card: "Q",
+        color: "black",
+        index: "103"
+    },
+    {
+        suits: "Spade",
+        card: "K",
+        color: "black",
+        index: "104"
     }
 ];

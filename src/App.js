@@ -87,6 +87,7 @@ class App extends React.Component {
     playerRef.on('value', (snapshot) => {
       players = snapshot.val();
     });
+    console.log(cardsArray)
     for (var player = 0; player < players.length; player++) {
       const randomItem = cardsArray[Math.floor(Math.random() * cardsArray.length)];
       var newCardsArray = cardsArray.filter(element => element.index !== randomItem.index)
@@ -95,7 +96,7 @@ class App extends React.Component {
       newCardsArray = cardsArray.filter(element => element.index !== randomItem1.index)
       cardsArray = newCardsArray;
 
-      if (cardsPickedArray.length < 52) {
+      if (cardsPickedArray.length < 104) {
         cardsPickedArray.push(randomItem);
         cardsPickedArray.push(randomItem1);
       }
@@ -118,12 +119,14 @@ class App extends React.Component {
   };
 
   betOneCard = () => {
+
     let cardsArray = this.state.cardsArray;
+    console.log(cardsArray)
     const randomItem = cardsArray[Math.floor(Math.random() * cardsArray.length)];
     const newCardsArray = cardsArray.filter(element => element.index !== randomItem.index)
     this.setState({ cardsArray: newCardsArray })
     let cardsPickedArray = this.state.cardPicked;
-    cardsPickedArray.length < 52 &&
+    cardsPickedArray.length < 104 &&
       cardsPickedArray.push(randomItem);
     this.setState({ cardPicked: cardsPickedArray })
 
@@ -147,30 +150,68 @@ class App extends React.Component {
     }
   }
 
+  newGame = () => {
+    var playerRef = firebase.database().ref('users');
+    let players;
+    playerRef.on('value', (snapshot) => {
+      players = snapshot.val();
+    });
+    for (let player in players) {
+      var data = {
+        point: players[player].point - 10
+      }
+      playerRef.child(player)
+        .update(data)
+        .then(() => playerRef.once('value'))
+        .then(snapshot => snapshot.val())
+        .catch(error => ({
+          errorCode: error.code,
+          errorMessage: error.message
+        }));
+    }
+
+    var dealerRef = firebase.database().ref('dealer');
+    let dealers;
+    dealerRef.on('value', (snapshot) => {
+      dealers = snapshot.val();
+    });
+    for (var dealer = 0; dealer < dealers.length; dealer++) {
+      var data = {
+        point: players.length * 10
+      }
+      dealerRef.child(dealer)
+        .update(data)
+        .then(() => dealerRef.once('value'))
+        .then(snapshot => snapshot.val())
+        .catch(error => ({
+          errorCode: error.code,
+          errorMessage: error.message
+        }));
+    }
+  }
+
   flip = () => {
     this.setState({ front: !this.state.front })
   };
   render() {
     const cardsArray = this.state.cardsArray;
     const cardsPickedArray = this.state.cardPicked;
-    console.log(this.props)
     return (
       <Layout>
 
         <Sider style={{
-          overflow: 'auto',
           height: '100vh',
           position: 'fixed',
           left: 0,
         }}>
           <img src={logo1} alt="logo-symbol" style={{ maxWidth: "100%" }} />
-          <Dealer username={this.props.match.params.username} cardsArray={this.state.cardsArray} shuffle={this.shuffle} dealOneCard={this.dealOneCard} betOneCard={this.betOneCard} flip={this.flip} deckArray={deckArray} />
+          <Dealer newGame={this.newGame} username={this.props.match.params.username} cardsArray={this.state.cardsArray} shuffle={this.shuffle} dealOneCard={this.dealOneCard} betOneCard={this.betOneCard} flip={this.flip} deckArray={deckArray} />
         </Sider>
-        <Layout className="site-layout" style={{ marginLeft: 200 }}>
+        <Layout className="site-layout" style={{ marginLeft: 200, overflow: 'hidden' }}>
 
           <Content style={{ margin: '24px 16px 0', overflow: 'initial', }}>
-            <div className="site-layout-background" style={{ padding: 24, textAlign: 'center', height: "calc(100vh - 55px)" }}>
-              <Players cardsPickedArray={this.state.cardPicked} />
+            <div className="site-layout-background" style={{ padding: 24, textAlign: 'center' }}>
+              <Players cardsPickedArray={this.state.cardPicked} username={this.props.match.params.username} />
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>Between Card Game ©2020 Created by Kiran Kumar S</Footer>
