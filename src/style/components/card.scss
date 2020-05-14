@@ -1,0 +1,45 @@
+@import "../mixins.scss";
+
+
+.card-container {
+  height: 182px;
+  width: 100px;
+  background-color: white;
+  background-size: cover;
+  position: relative;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-left: -188px;
+  font-size: 20px;
+  text-align: center;
+  @include transition (all, 0.25s, ease);
+  @include bp-medium {
+    margin-left: -195px;
+  }
+  @include bp-small {
+    margin-left: -198px;    
+  }
+  @include bp-mobileOnly {
+    margin-left: -200px;    
+  }
+}
+
+.animated.slideInUp{
+  width: 120px;
+}
+
+// .animated.slideInDown{
+//   width: 10px;
+// }
+
+.ant-layout-header{
+  background: #305d3c;
+  // height: 40px;
+}
+.ant-card-head-title{
+  flex:none
+}
+
+.ant-layout-sider{
+background: #305d3c;
+}
